@@ -1,4 +1,3 @@
-/*! foreigner.js - v0.3.2 - 2016-04-11
  * http://github.com/mirego/foreigner.js
  *
  * Copyright (c) 2013-2016 Mirego <http://mirego.com>;
@@ -31,7 +30,7 @@
         var IDENTIFIER = "[a-z0-9_\\$]+";
         var SWITCHES_REGEXP = "" + "\\{" + WHITESPACE + "(" + IDENTIFIER + ")" + WHITESPACE + "," + WHITESPACE + "(select|plural)" + WHITESPACE + "," + WHITESPACE + "((?:\\w+" + WHITESPACE + "\\{[^\\}]+\\}" + WHITESPACE + ")+)" + "\\}";
         var INTERPOLATION_REGEXP = "\\{" + WHITESPACE + "(" + IDENTIFIER + ")" + WHITESPACE + "\\}";
-        var TOKEN_WITH_FORMAT_REGEXP = "\\{\\s*([a-z0-9_\\$]+)\\s*:([\\sa-z:\\-0-9_\\$]+)\\s*\\}";
+        var TOKEN_WITH_FORMAT_REGEXP = "\\{\\s*([a-z0-9_\\$]+)\\s*:([^\\}]+)\\s*\\}";
         var TOKEN_REGEXP = new RegExp("(?:" + SWITCHES_REGEXP + ")|(?:" + INTERPOLATION_REGEXP + ")|(?:" + TOKEN_WITH_FORMAT_REGEXP + ")", "gi");
         var CHOICES_REGEXP = new RegExp("(\\w+)" + WHITESPACE + "\\{([^\\}]+)\\}", "gi");
         var NUMBER_MAP = {
