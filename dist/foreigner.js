@@ -1,4 +1,4 @@
-/*! foreigner.js - v0.3.3 - 2016-04-12
+/*! foreigner.js - v0.3.4 - 2016-04-18
  * http://github.com/mirego/foreigner.js
  *
  * Copyright (c) 2013-2016 Mirego <http://mirego.com>;
@@ -137,6 +137,16 @@
                     throw new Error("[foreigner] You tried to lookup a translation without setting a locale.");
                 }
                 var string = lookupKey(key, locale);
+                if (!string) return null;
+                if (typeof attrs !== "object") {
+                    return string;
+                } else {
+                    var tokens = parse(string);
+                    var formatter = attrs.formatter;
+                    return compile(string, tokens, attrs, formatter);
+                }
+            },
+            tp: function(string, attrs) {
                 if (!string) return null;
                 if (typeof attrs !== "object") {
                     return string;
